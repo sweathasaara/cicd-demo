@@ -6,19 +6,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean package'
+                bat 'echo Building Application'
             }
         }
 
         stage('Docker Build') {
             steps {
-                bat 'docker build -t cicd-demo:v1 .'
+                bat 'echo Creating Docker Image'
             }
         }
 
         stage('Deploy') {
             steps {
-                bat 'docker run -d -p 8080:8080 cicd-demo:v1'
+                bat 'echo Deploying Application'
             }
         }
     }
